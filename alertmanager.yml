@@ -15,5 +15,5 @@ route:
 receivers:
   - name: 'webhook-receiver'
     webhook_configs:
-      - url: 'http://localhost:9999/webhook'
+      - url: 'http://172.17.0.1:9999/webhook'
         send_resolved: true
