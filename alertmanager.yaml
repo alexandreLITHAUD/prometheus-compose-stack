@@ -1,0 +1,18 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['instance', 'severity']
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 1h
+  receiver: 'webhook-receiver'
+  routes:
+  - matches:
+    alertname: 'High CPU Load'
+    
+receivers:
+- name: 'webhook-receiver'
+  webhook_configs:
+  - url: 'http://localhost:8080/webhook'
+    send_resolved: true

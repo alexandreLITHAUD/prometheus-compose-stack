@@ -1,0 +1,11 @@
+groups:
+  - name: 'test'
+    rules:
+    - alert: 'High CPU Load'
+      expr: node_load1 > 0.7
+      for: 15s
+      labels:
+        severity: 'critical'
+      annotations:
+        summary: '{{ $labels.instance }} High CPU load'
+        description: '{{ $labels.instance }} has a high CPU load of {{ $value }}'
